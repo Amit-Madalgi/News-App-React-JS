@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Amit-Madalgi/News-App-React-JS/static/css/main.d2a19b1f.css",
-    "main.js": "/Amit-Madalgi/News-App-React-JS/static/js/main.9aafa90a.js",
-    "static/js/453.b2157c12.chunk.js": "/Amit-Madalgi/News-App-React-JS/static/js/453.b2157c12.chunk.js",
-    "index.html": "/Amit-Madalgi/News-App-React-JS/index.html",
-    "main.d2a19b1f.css.map": "/Amit-Madalgi/News-App-React-JS/static/css/main.d2a19b1f.css.map",
-    "main.9aafa90a.js.map": "/Amit-Madalgi/News-App-React-JS/static/js/main.9aafa90a.js.map",
-    "453.b2157c12.chunk.js.map": "/Amit-Madalgi/News-App-React-JS/static/js/453.b2157c12.chunk.js.map"
+    "main.css": "/Amit-Madalgi/News-App-React-JS/business/static/css/main.d2a19b1f.css",
+    "main.js": "/Amit-Madalgi/News-App-React-JS/business/static/js/main.a692b905.js",
+    "static/js/453.b2157c12.chunk.js": "/Amit-Madalgi/News-App-React-JS/business/static/js/453.b2157c12.chunk.js",
+    "index.html": "/Amit-Madalgi/News-App-React-JS/business/index.html",
+    "main.d2a19b1f.css.map": "/Amit-Madalgi/News-App-React-JS/business/static/css/main.d2a19b1f.css.map",
+    "main.a692b905.js.map": "/Amit-Madalgi/News-App-React-JS/business/static/js/main.a692b905.js.map",
+    "453.b2157c12.chunk.js.map": "/Amit-Madalgi/News-App-React-JS/business/static/js/453.b2157c12.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d2a19b1f.css",
-    "static/js/main.9aafa90a.js"
+    "static/js/main.a692b905.js"
   ]
 }
