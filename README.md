@@ -24,5 +24,5 @@ NewsMonkey is a responsive React-based news application that fetches and display
 - HTML/CSS
 
 ## 📸 Screenshots
-![News-App-React-JS Screenshots](assets/screensshot1.png)
-![News-App-React-JS Screenshots](assets/screensshot2.png)
+![News-App-React-JS Screenshots](assets/screenshot1.png)
+![News-App-React-JS Screenshots](assets/screenshot2.png)
