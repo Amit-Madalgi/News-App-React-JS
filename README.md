@@ -11,10 +11,6 @@ NewsMonkey is a responsive React-based news application that fetches and display
 - 📦 Environment variable support for API keys
 - 🧩 Clean component-based architecture
 
-## 🔍 Live Preview
-
-> Coming soon... (Optional GitHub Pages/Netlify link)
-
 ## 🧱 Tech Stack
 
 - React JS
