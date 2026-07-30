@@ -18,15 +18,30 @@ const News = (props) => {
 
     const updateNews = async () => {
       props.setProgress(10);
-      const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+      const isDev = process.env.NODE_ENV === 'development';
+      const url = isDev 
+        ? `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`
+        : `/api/news?country=${props.country}&category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
       console.log("Fetching from URL:", url);
       setLoading(true);
-      let data = await fetch(url);
-      props.setProgress(30);
-      let parsedData = await data.json();
-      props.setProgress(70);
-      setArticles(parsedData.articles);
-      setTotalResults(parsedData.totalResults);
+      try {
+        let data = await fetch(url);
+        props.setProgress(30);
+        let parsedData = await data.json();
+        props.setProgress(70);
+        if (parsedData.status === 'ok') {
+          setArticles(parsedData.articles || []);
+          setTotalResults(parsedData.totalResults || 0);
+        } else {
+          console.error("NewsAPI Error:", parsedData.message);
+          setArticles([]);
+          setTotalResults(0);
+        }
+      } catch (error) {
+        console.error("Error fetching news:", error);
+        setArticles([]);
+        setTotalResults(0);
+      }
       setLoading(false);
       props.setProgress(100);
     }
@@ -48,12 +63,23 @@ const News = (props) => {
     // }
 
     const fetchMoreData = async () => {
-      const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
+      const isDev = process.env.NODE_ENV === 'development';
+      const url = isDev
+        ? `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`
+        : `/api/news?country=${props.country}&category=${props.category}&page=${page + 1}&pageSize=${props.pageSize}`;
       setPage(page + 1);
-      let data = await fetch(url);
-      let parsedData = await data.json();
-      setArticles(articles.concat(parsedData.articles));
-      setTotalResults(parsedData.totalResults);
+      try {
+        let data = await fetch(url);
+        let parsedData = await data.json();
+        if (parsedData.status === 'ok') {
+          setArticles(articles.concat(parsedData.articles || []));
+          setTotalResults(parsedData.totalResults || 0);
+        } else {
+          console.error("NewsAPI Error:", parsedData.message);
+        }
+      } catch (error) {
+        console.error("Error fetching more news:", error);
+      }
     };
 
     return (
